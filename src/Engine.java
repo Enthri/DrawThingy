@@ -26,7 +26,7 @@ public class Engine {
 		});
 		frame.pack();
 		frame.setVisible(true);
-		add(new Upvote());
+		add(new Upvote(100, 100, 100, 50));
 	}
 	
 	public static void add(Drawable object) {
