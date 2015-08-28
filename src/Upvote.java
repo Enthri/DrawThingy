@@ -1,12 +1,13 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Polygon;
 import java.awt.geom.Rectangle2D;
 
 
 public class Upvote implements Drawable{
 	private int x_global;
 	private int y_global;
+	public int[] arr_x = new int[]{40, 60, 80};
+	public int[] arr_y = new int[]{40, 20, 20};
 	@Override
 	public void paint(Graphics2D render) {
 		int w_stem = 50;
@@ -34,8 +35,7 @@ public class Upvote implements Drawable{
 		return y_global;
 	}	
 	public void createTriangle(Graphics2D r, Color c){
-		Polygon t = new Polygon();
-		r.draw(t);
+		r.drawPolygon(arr_x, arr_y, 3);
 	}
 	public void createStem(Graphics2D r, Color c, int x, int y, int w, int h) {
 		Rectangle2D stem = new Rectangle2D.Double(w, h, x, y);
