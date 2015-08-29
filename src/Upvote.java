@@ -4,13 +4,30 @@ import java.awt.Graphics2D;
 
 public class Upvote implements Drawable{
 	private int x_global = 40;
-	private int y_global = 40;
+	private int y_global = 0;
+	private int[] arr_x = new int[7];
+	private int[] arr_y = new int[7];
+	
 	public Upvote(int x, int y, int width, int height){
+		arr_x[0] = x;
+		arr_x[1] = x - 20;
+		arr_x[2] = x - 10;
+		arr_x[3] = arr_x[2];
+		arr_x[4] = x + 10;
+		arr_x[5] = arr_x[4];
+		arr_x[6] = x + 20;
+		
+		arr_y[0] = y;
+		arr_y[1] = y + 20;
+		arr_y[2] = arr_y[1];
+		arr_y[3] = y + 40;
+		arr_y[4] = arr_y[3];
+		arr_y[5] = arr_y[1];
+		arr_y[6] = arr_y[1];
+		
 		x_global = x;
 		y_global = y;
 	}
-	public int[] arr_x = new int[]{x_global, x_global - 20, x_global - 10, x_global - 10, x_global + 10, x_global + 10, x_global + 20};
-	public int[] arr_y = new int[]{y_global, y_global + 20, y_global + 20, y_global + 40, y_global + 40, y_global + 20, y_global + 20};
 	@Override
 	public void paint(Graphics2D render) {
 		Color c = Color.ORANGE;
