@@ -11,7 +11,7 @@ public class Snoo implements Drawable {
 	
 	private int x, y, width, height;
 	
-	public Snoo(int x, int y, int width, int height) {
+	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 180
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -22,7 +22,7 @@ public class Snoo implements Drawable {
 	public void paint(Graphics2D render) {
 		AffineTransform oldTransform = render.getTransform();
 		render.translate(x, y);
-		render.scale(width / 220, height / 300);
+		render.scale(width / 220, height / 180);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 		render.setPaint(Color.WHITE);
 		Ellipse2D.Double head = new Ellipse2D.Double(15, 55, 180, 120);
