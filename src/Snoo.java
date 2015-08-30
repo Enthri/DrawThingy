@@ -15,12 +15,32 @@ public class Snoo implements Drawable {
 	
 	private int x, y, width, height;
 	private double rotation = 45;
+	private Ellipse2D.Double head;
+	private Ellipse2D.Double eye0;
+	private Ellipse2D.Double eye1;
+	private Ellipse2D.Double ant1;
+	private Arc2D.Double ear0;
+	private Arc2D.Double ear1;
+	private Arc2D.Double mouth;
+	private Path2D.Double antBase;
 	
 	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 180
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		
+		head = new Ellipse2D.Double(15, 55, 180, 120);
+		eye0 = new Ellipse2D.Double(60, 90, 30, 30);
+		eye1 = new Ellipse2D.Double(120, 90, 30, 30);
+		ear0 = new Arc2D.Double(5, 70, 35, 35, 50, 180, Arc2D.OPEN);
+		ear1 = new Arc2D.Double(170, 70, 35, 35, 130, -190, Arc2D.OPEN);
+		antBase = new Path2D.Double();
+		antBase.moveTo(105, 50);
+		antBase.lineTo(120, 5);
+		antBase.lineTo(162, 15);
+		ant1 = new Ellipse2D.Double(162, 5, 32, 32);
+		mouth = new Arc2D.Double(51.5, 45, 107, 107, 235, 70, Arc2D.OPEN);
 	}
 
 	@Override
@@ -31,17 +51,6 @@ public class Snoo implements Drawable {
 		render.rotate(Math.toRadians(rotation), width / 2, height / 2);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 		render.setPaint(Color.WHITE);
-		Ellipse2D.Double head = new Ellipse2D.Double(15, 55, 180, 120);
-		Ellipse2D.Double eye0 = new Ellipse2D.Double(60, 90, 30, 30);
-		Ellipse2D.Double eye1 = new Ellipse2D.Double(120, 90, 30, 30);
-		Arc2D.Double ear0 = new Arc2D.Double(5, 70, 35, 35, 50, 180, Arc2D.OPEN);
-		Arc2D.Double ear1 = new Arc2D.Double(170, 70, 35, 35, 130, -190, Arc2D.OPEN);
-		Path2D.Double antBase = new Path2D.Double();
-		antBase.moveTo(105, 50);
-		antBase.lineTo(120, 5);
-		antBase.lineTo(162, 15);
-		Ellipse2D.Double ant1 = new Ellipse2D.Double(162, 5, 32, 32);
-		Arc2D.Double mouth = new Arc2D.Double(51.5, 45, 107, 107, 235, 70, Arc2D.OPEN);
 		render.fill(ear0);
 		render.fill(ear1);
 		render.fill(ant1);
