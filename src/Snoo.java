@@ -1,3 +1,8 @@
+/*
+ * Troi-Ryan Stoeffler's awesome snoo head
+ * It's beautiful isn't it?
+ */
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -9,6 +14,7 @@ import java.awt.geom.Path2D;
 public class Snoo implements Drawable {
 	
 	private int x, y, width, height;
+	private double rotation = 45;
 	
 	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 180
 		this.x = x;
@@ -22,6 +28,7 @@ public class Snoo implements Drawable {
 		AffineTransform oldTransform = render.getTransform();
 		render.translate(x, y);
 		render.scale(width / 220, height / 180);
+		render.rotate(Math.toRadians(rotation), width / 2, height / 2);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 		render.setPaint(Color.WHITE);
 		Ellipse2D.Double head = new Ellipse2D.Double(15, 55, 180, 120);
@@ -70,5 +77,13 @@ public class Snoo implements Drawable {
 	@Override
 	public int getY() {
 		return y;
+	}
+	
+	/**
+	 * Increase rotation by set amount
+	 * @param rotation
+	 */
+	public void rotate(double rotation) {
+		this.rotation += rotation;
 	}
 }

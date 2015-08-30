@@ -2,15 +2,20 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Engine {
 	
 	private static ArrayList<Drawable> drawableList;
 	private static JFrame frame;
+	
+	private static Snoo snoo;
 	
 	@SuppressWarnings("serial")
 	public static void main(String[] args) {
@@ -22,6 +27,8 @@ public class Engine {
 		frame.setContentPane(new JPanel(){
 			@Override
 			   public void paintComponent(Graphics g) {
+				snoo.setX(getWidth()/2 - 110);
+				snoo.setY(getHeight()/2 - 90);
 			    Graphics2D render = (Graphics2D) g;
 			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			    for(Drawable object : drawableList) object.paint(render);
@@ -34,8 +41,16 @@ public class Engine {
 				add(new Upvote(x, y));
 			}
 		}
-		add(new Snoo(frame.getContentPane().getWidth()/2 - 110, frame.getContentPane().getHeight()/2 - 90, 220, 180));
-		
+		snoo = new Snoo(0, 0, 220, 180); 
+		add(snoo);
+		Timer timer = new Timer(10, new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				snoo.rotate(5);
+				frame.repaint();
+			}
+		});
+		timer.start();
 	}
 	
 	public static void add(Drawable object) {
