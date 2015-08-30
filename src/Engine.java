@@ -30,7 +30,7 @@ public class Engine {
 		frame.pack();
 		frame.setVisible(true);
 		for(int y = 0; y <= frame.getHeight() + 5000; y += 50){
-			for(int x = 0; x < frame.getHeight(); x += 40){
+			for(int x = 0; x < frame.getHeight() + 200; x += 40){
 				add(new Upvote(x, y));
 			}
 		}

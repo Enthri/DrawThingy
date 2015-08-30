@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.Random;
 
 
 public class Upvote implements Drawable{
@@ -30,8 +31,10 @@ public class Upvote implements Drawable{
 	}
 	@Override
 	public void paint(Graphics2D render) {
-		Color c = Color.ORANGE;
-		createTriangle(render, c);
+		Random rand = new Random();
+		Color[] arr_c = new Color[]{Color.ORANGE, Color.BLUE, Color.RED, Color.GREEN};
+		int cnum = rand.nextInt(4);
+		createTriangle(render, arr_c[cnum]);
 //		createStem(render, c, x_global, y_global, w_stem, h_stem);
 	}
 	
