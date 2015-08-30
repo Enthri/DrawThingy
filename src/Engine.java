@@ -26,10 +26,8 @@ public class Engine {
 		});
 		frame.pack();
 		frame.setVisible(true);
-		for(int y = 0; y < frame.getHeight(); y =+ 40){
-			for(int x = 0; x < frame.getWidth(); x=+ 60){
-				add(new Upvote(x, y, 100, 50));
-			}
+		for(int y = 0; y < frame.getHeight(); y += 40){
+			add(new Upvote(y, 50));
 		}
 		
 	}

@@ -8,7 +8,7 @@ public class Upvote implements Drawable{
 	private int[] arr_x = new int[7];
 	private int[] arr_y = new int[7];
 	
-	public Upvote(int x, int y, int width, int height){
+	public Upvote(int x, int y){
 		arr_x[0] = x;
 		arr_x[1] = x - 20;
 		arr_x[2] = x - 10;
