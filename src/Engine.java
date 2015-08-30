@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -20,15 +21,20 @@ public class Engine {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(new JPanel(){
 			@Override
-			public void paintComponent(Graphics g) {
-				for(Drawable object : drawableList) object.paint((Graphics2D) g);
-			}
+			   public void paintComponent(Graphics g) {
+			    Graphics2D render = (Graphics2D) g;
+			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			    for(Drawable object : drawableList) object.paint(render);
+			   }
 		});
 		frame.pack();
 		frame.setVisible(true);
-		for(int y = 0; y < frame.getHeight(); y += 40){
-			add(new Upvote(y, 50));
+		for(int y = 0; y <= frame.getHeight() + 5000; y += 50){
+			for(int x = 0; x < frame.getHeight(); x += 40){
+				add(new Upvote(x, y));
+			}
 		}
+		add(new Snoo(0, 0, 0, 0));
 		
 	}
 	
