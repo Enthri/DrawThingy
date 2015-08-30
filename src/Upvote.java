@@ -1,3 +1,8 @@
+/*
+ * Author: Ryan Chen
+ * Date: August 29, 2015
+ * Description: This is my Upvote class Mr. Steinke!!! I hope you like Reddit too.
+ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
