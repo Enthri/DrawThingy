@@ -34,7 +34,7 @@ public class Engine {
 				add(new Upvote(x, y));
 			}
 		}
-		add(new Snoo(frame.getWidth()/2 - 110, frame.getHeight()/2 - 90, 220, 180));
+		add(new Snoo(frame.getContentPane().getWidth()/2 - 110, frame.getContentPane().getHeight()/2 - 90, 220, 180));
 		
 	}
 	
