@@ -21,7 +21,6 @@ public class Snoo implements Drawable {
 	@Override
 	public void paint(Graphics2D render) {
 		AffineTransform oldTransform = render.getTransform();
-		render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		render.translate(x, y);
 		render.scale(2, 2);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
