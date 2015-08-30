@@ -22,7 +22,7 @@ public class Snoo implements Drawable {
 	public void paint(Graphics2D render) {
 		AffineTransform oldTransform = render.getTransform();
 		render.translate(x, y);
-		render.scale(2, 2);
+		render.scale(width / 220, height / 300);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
 		render.setPaint(Color.WHITE);
 		Ellipse2D.Double head = new Ellipse2D.Double(15, 55, 180, 120);
