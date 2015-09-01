@@ -14,7 +14,7 @@ import java.awt.geom.Path2D;
 public class Snoo implements Drawable {
 	
 	private int x, y, width, height;
-	private double rotation = 45;
+	private double rotation = 0;
 	private Ellipse2D.Double head;
 	private Ellipse2D.Double eye0;
 	private Ellipse2D.Double eye1;
@@ -22,6 +22,10 @@ public class Snoo implements Drawable {
 	private Arc2D.Double ear0;
 	private Arc2D.Double ear1;
 	private Arc2D.Double mouth;
+	private Arc2D.Double torso;
+	private Arc2D.Double arm0;
+	private Arc2D.Double arm1;
+	private Arc2D.Double foot0;
 	private Path2D.Double antBase;
 	
 	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 180
@@ -41,6 +45,10 @@ public class Snoo implements Drawable {
 		antBase.lineTo(162, 15);
 		ant1 = new Ellipse2D.Double(162, 5, 32, 32);
 		mouth = new Arc2D.Double(51.5, 45, 107, 107, 235, 70, Arc2D.OPEN);
+		torso = new Arc2D.Double(60, 110, 90, 190, 283, 334, Arc2D.CHORD);
+		arm0 = new Arc2D.Double(35, 175, 65, 80, 110, 150, Arc2D.OPEN);
+		arm1 = new Arc2D.Double(110, 175, 65, 80, 70, -150, Arc2D.OPEN);
+		foot0 = new Arc2D.Double(45, 273, 45, 46, 180, -95, Arc2D.OPEN);
 	}
 
 	@Override
@@ -50,6 +58,16 @@ public class Snoo implements Drawable {
 		render.scale(width / 220, height / 180);
 		render.rotate(Math.toRadians(rotation), width / 2, height / 2);
 		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+		render.setPaint(Color.WHITE);
+		render.fill(torso);
+		render.fill(arm0);
+		render.fill(arm1);
+		render.fill(foot0);
+		render.setPaint(Color.BLACK);
+		render.draw(torso);
+		render.draw(arm0);
+		render.draw(arm1);
+		render.draw(foot0);
 		render.setPaint(Color.WHITE);
 		render.fill(ear0);
 		render.fill(ear1);
