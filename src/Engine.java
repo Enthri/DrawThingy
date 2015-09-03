@@ -28,7 +28,7 @@ public class Engine {
 			@Override
 			   public void paintComponent(Graphics g) {
 				snoo.setX(this.getWidth()/2 - 110);
-				snoo.setY(this.getHeight()/2 - 90);
+				snoo.setY(this.getHeight()/2 - 150);
 			    Graphics2D render = (Graphics2D) g;
 			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			    for(Drawable object : drawableList) object.paint(render);
