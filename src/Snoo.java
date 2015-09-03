@@ -13,11 +13,11 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 
-public class Snoo implements Drawable {
+public class Snoo implements Drawable { //this class is type drawable, implements the drawable interface
 	
-	private int x, y, width, height;
-	private double rotation = 0;
-	private Ellipse2D.Double head;
+	private int x, y, width, height; //declare all the variables needed for math
+	private double rotation = 0; //and rotation
+	private Ellipse2D.Double head; //declare all the variables needed for drawing the object
 	private Ellipse2D.Double eye0;
 	private Ellipse2D.Double eye1;
 	private Ellipse2D.Double ant1;
@@ -32,13 +32,14 @@ public class Snoo implements Drawable {
 	private Line2D.Double footU;
 	private Path2D.Double antBase;
 	
-	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 180
-		this.x = x;
+	//constructor for snoo x, y, width, heigh
+	public Snoo(int x, int y, int width, int height) { //default width and height is 220 by 300
+		this.x = x; //set the x coordinate to the specified parameter
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		
-		head = new Ellipse2D.Double(15, 55, 180, 120);
+		head = new Ellipse2D.Double(15, 55, 180, 120); //initialize each of the shapes to make up the object
 		eye0 = new Ellipse2D.Double(60, 90, 30, 30);
 		eye1 = new Ellipse2D.Double(120, 90, 30, 30);
 		ear0 = new Arc2D.Double(5, 70, 35, 35, 50, 180, Arc2D.OPEN);
@@ -59,17 +60,17 @@ public class Snoo implements Drawable {
 
 	@Override
 	public void paint(Graphics2D render) {
-		AffineTransform oldTransform = render.getTransform();
-		Stroke oldStroke = render.getStroke();
-		render.translate(x, y);
-		if(width != 0 || height != 0) render.scale(width / 220.0D, height / 300.0D);
-		render.rotate(Math.toRadians(rotation), 105, 150);
-		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-		render.setPaint(Color.WHITE);
-		render.fill(foot0);
+		AffineTransform oldTransform = render.getTransform(); //save the old transformation
+		Stroke oldStroke = render.getStroke(); //save the old stroke
+		render.translate(x, y); //translate the origin to the current x and y coordinate
+		if(width != 0 || height != 0) render.scale(width / 220.0D, height / 300.0D); //scale it accordingly
+		render.rotate(Math.toRadians(rotation), 105, 150); //rotate it accordingly with the origin at the center of snoo
+		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND)); //set the stroke to a nice and thick line
+		render.setPaint(Color.WHITE); //set the paint of the graphics pane
+		render.fill(foot0); //fill the specified shape with the color
 		render.fill(foot1);
 		render.setPaint(Color.BLACK);
-		render.draw(foot0);
+		render.draw(foot0); //draw the outline of the specified shape
 		render.draw(foot1);
 		render.draw(footU);
 		render.setPaint(Color.WHITE);
@@ -92,25 +93,25 @@ public class Snoo implements Drawable {
 		render.draw(antBase);
 		render.draw(head);
 		render.draw(mouth);
-		render.setPaint(new Color(255, 69, 0));
+		render.setPaint(new Color(255, 69, 0)); //set the paint to the specified RGB code
 		render.fill(eye0);
 		render.fill(eye1);
-		render.setStroke(oldStroke);
-		render.setTransform(oldTransform);
+		render.setStroke(oldStroke); //set the stroke of the graphics pane to the old stroke
+		render.setTransform(oldTransform); //and transformation to reset rotation and origin
 	}
 
 	@Override
-	public void setX(int x) {
+	public void setX(int x) { //mutator to set the x coordinate, inherited from the drawable interface
 		this.x = x;
 	}
 
 	@Override
-	public void setY(int y) {
+	public void setY(int y) { //same
 		this.y = y;
 	}
 
 	@Override
-	public int getX() {
+	public int getX() { //same but accessor method to yield the x coord
 		return x;
 	}
 
