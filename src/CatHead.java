@@ -15,7 +15,7 @@ public class CatHead implements Drawable{
 	public CatHead(int x, int y, int w, int h){
 		x_global = x;
 		y_global = y;
-		x_globaladd50 = x +50;
+		x_globaladd50 = x_global + 50;
 		x_globaladd100 = x_global + 100;
 		y_globaladd80 = y + 80;
 		w_e = w;
@@ -99,5 +99,8 @@ public class CatHead implements Drawable{
 	public int getY() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	public void move(){
+		x_global += 1;
 	}
 }

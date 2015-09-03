@@ -27,8 +27,10 @@ public class Engine {
 		frame.setContentPane(new JPanel(){
 			@Override
 			   public void paintComponent(Graphics g) {
-				snoo.setX(this.getWidth()/2 - 110);
-				snoo.setY(this.getHeight()/2 - 150);
+				if(snoo != null){
+					snoo.setX(this.getWidth()/2 - 110);
+					snoo.setY(this.getHeight()/2 - 150);
+				}
 			    Graphics2D render = (Graphics2D) g;
 			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			    for(Drawable object : drawableList) if(object != null) object.paint(render);
@@ -42,12 +44,14 @@ public class Engine {
 			}
 		}
 		snoo = new Snoo(0, 0, 220, 300);
-		add(new CatHead(200, 100,3,3));
+		final CatHead c = new CatHead(200, 100,3,3);
+		add(c);
 		add(snoo);
 		Timer timer = new Timer(33, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				snoo.rotate(5);
+				c.move();
 				frame.repaint();
 			}
 		});
