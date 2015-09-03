@@ -1,14 +1,23 @@
+/*
+ * Author: Ryan Chen
+ * Date: September 2nd, 2015
+ * Description: This class draws Triangles.
+ */
 import java.awt.Polygon;
 
 
 @SuppressWarnings("serial")
+//This is the Triangle class that creates Triangles.
 public class Triangle extends Polygon{
+	//Declaring variables needed to make a triangle.
 	int[] x_points = new int[3];
 	int[] y_points = new int[3];
 	int l;
 	int x_final;
 	int y_final;
+	//The constructor for making triangles.
 	public Triangle(int x, int y, int length){
+		//I use math to figure out the points, which makes it universally applicable.
 		l = length;
 		x_final = x;
 		y_final = y;
@@ -20,23 +29,12 @@ public class Triangle extends Polygon{
 		y_points[1] = (int) (y_final + (length/2) * Math.sqrt(3));
 		y_points[2] = y_points[1];
 		
+		//I also save three lines of code to add in three lines of code.
 		for(int i = 0; i < 3; i++){
 			this.addPoint(x_points[i], y_points[i]);
 			}
 	}
-	public Triangle(int x, int y, int length, int rotation){
-		x_points[0] = x;
-		x_points[1] = x + length/2;
-		x_points[2] = x - length/2;
-		
-		y_points[0] = y;
-		y_points[1] = (int) (y + Math.cbrt(length/2));
-		y_points[2] = y_points[1];
-		this.addPoint(x_points[0], y_points[0]);
-		this.addPoint(x_points[1], y_points[1]);
-		this.addPoint(y_points[2], y_points[2]);
-	}
-	
+	//Obligatory accessor and mutator methods.
 	public int getLength(){
 		return l;
 	}
