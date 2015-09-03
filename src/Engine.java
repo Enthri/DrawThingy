@@ -31,7 +31,7 @@ public class Engine {
 				snoo.setY(this.getHeight()/2 - 150);
 			    Graphics2D render = (Graphics2D) g;
 			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			    for(Drawable object : drawableList) object.paint(render);
+			    for(Drawable object : drawableList) if(object != null) object.paint(render);
 			   }
 		});
 		frame.pack();
