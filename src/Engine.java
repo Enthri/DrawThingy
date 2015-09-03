@@ -27,14 +27,14 @@ public class Engine {
 		frame.setContentPane(new JPanel(){
 			@Override
 			   public void paintComponent(Graphics g) {
-				if(snoo != null){
+				try {
 					snoo.setX(this.getWidth()/2 - 110);
 					snoo.setY(this.getHeight()/2 - 150);
-				}
-			    Graphics2D render = (Graphics2D) g;
-			    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			    for(Drawable object : drawableList) if(object != null) object.paint(render);
-			   }
+				    Graphics2D render = (Graphics2D) g;
+				    render.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				    for(Drawable object : drawableList) if(object != null) object.paint(render);
+				} catch(Exception e) { }
+			}
 		});
 		frame.pack();
 		frame.setVisible(true);
