@@ -1,3 +1,4 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
@@ -22,6 +23,9 @@ public class CatHead implements Drawable{
 	}
 	@Override
 	public void paint(Graphics2D render) {
+
+		render.setStroke(new BasicStroke(10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+		
 		Triangle t = new Triangle(x_global, y_global, 50);
 		Triangle t2 = new Triangle(x_global + 100, y_global, 50);
 		Ellipse2D e = new Ellipse2D.Double(x_global - 58, y_global + 30, 210, 100);
