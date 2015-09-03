@@ -42,7 +42,7 @@ public class Engine {
 			}
 		}
 		snoo = new Snoo(0, 0, 220, 300);
-		add (new CatHead(200, 100,3,3));
+		add(new CatHead(200, 100,3,3));
 		add(snoo);
 		Timer timer = new Timer(16, new ActionListener(){
 			@Override

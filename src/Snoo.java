@@ -59,6 +59,7 @@ public class Snoo implements Drawable {
 	@Override
 	public void paint(Graphics2D render) {
 		AffineTransform oldTransform = render.getTransform();
+		Stroke oldStroke = render.getStroke();
 		render.translate(x, y);
 		if(width != 0 || height != 0) render.scale(width / 220.0D, height / 300.0D);
 		render.rotate(Math.toRadians(rotation), 105, 150);
@@ -93,6 +94,7 @@ public class Snoo implements Drawable {
 		render.setPaint(new Color(255, 69, 0));
 		render.fill(eye0);
 		render.fill(eye1);
+		render.setStroke(oldStroke);
 		render.setTransform(oldTransform);
 	}
 
