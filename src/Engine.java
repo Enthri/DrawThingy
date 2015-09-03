@@ -41,9 +41,10 @@ public class Engine {
 				add(new Upvote(x, y));
 			}
 		}
+		snoo = new Snoo(0, 0, 220, 300);
 		add(new Snoo(frame.getContentPane().getWidth()/2 - 110, frame.getContentPane().getHeight()/2 - 90, 220, 180));
 		add (new CatHead(200, 100,3,3));
-		add(new Snoo(0, 0, 220, 300));
+		add(snoo);
 		Timer timer = new Timer(10, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
