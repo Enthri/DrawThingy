@@ -41,6 +41,10 @@ public class Engine {
 				add(new Upvote(x, y));
 			}
 		}
+<<<<<<< HEAD
+		add(new Snoo(frame.getContentPane().getWidth()/2 - 110, frame.getContentPane().getHeight()/2 - 90, 220, 180));
+		add (new CatHead(200, 100,3,3));
+=======
 		snoo = new Snoo(0, 0, 220, 300); 
 		snoo.rotate(45);
 		add(snoo);
@@ -52,6 +56,7 @@ public class Engine {
 			}
 		});*/
 		//timer.start();
+>>>>>>> master
 	}
 	
 	public static void add(Drawable object) {
