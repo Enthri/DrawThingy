@@ -41,7 +41,8 @@ public class Engine {
 				add(new Upvote(x, y));
 			}
 		}
-		snoo = new Snoo(0, 0, 220, 180); 
+		snoo = new Snoo(0, 0, 220, 300); 
+		snoo.rotate(45);
 		add(snoo);
 		/*Timer timer = new Timer(10, new ActionListener(){
 			@Override
