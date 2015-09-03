@@ -35,7 +35,7 @@ public class Engine {
 			}
 		}
 		add(new Snoo(frame.getContentPane().getWidth()/2 - 110, frame.getContentPane().getHeight()/2 - 90, 220, 180));
-		add (new CatHead());
+		add (new CatHead(200, 100,3,3));
 	}
 	
 	public static void add(Drawable object) {
