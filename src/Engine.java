@@ -56,7 +56,7 @@ public class Engine {
 		snoo = new Snoo(0, 0, 220, 300); //snoo <3 -t
 		add(snoo);
 		//Here I create the CatHead
-		CatHead c = new CatHead(200, 100,3,3);
+		CatHead c = new CatHead(75, 330,3,3);
 		add(c);
 		//This timer helps rotate the snoo and changes the colors of the arrows.
 		Timer timer = new Timer(33, new ActionListener(){
